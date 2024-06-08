@@ -1,0 +1,32 @@
+Python 3.9.6
+virtualenv -p /usr/bin/python3 myenv
+source myenv/bin/activate
+
+
+docker-compose up -d
+
+docker exec -it kafka_postgres_learning-postgres-1 psql -U user -d orders_db
+
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    amount DECIMAL NOT NULL,
+    timestamp BIGINT NOT NULL
+);
+
+source myenv/bin/activate & python producer.py
+python consumer.py
+python analize.py
+
+chmod +x setup.sh
+
+
+
+docker-compose down
+docker-compose ps
+
+DROP TABLE orders;
+
+docker images -a -q
+docker images
+docker rmi $(docker images -a -q)
