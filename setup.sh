@@ -22,10 +22,9 @@ done
 sleep 3
 
 docker exec -i kafka_postgres_learning-postgres-1 psql -U user -d orders_db << EOF
-CREATE TABLE IF NOT EXISTS orders (
-    order_id SERIAL PRIMARY KEY,
-    user_id INT NOT NULL,
-    amount DECIMAL NOT NULL,
+CREATE TABLE IF NOT EXISTS frames (
+    frame_id SERIAL PRIMARY KEY,
+    frame_data TEXT NOT NULL,
     timestamp BIGINT NOT NULL
 );
 EOF

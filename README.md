@@ -6,9 +6,9 @@
 
 Проект включает три основных компонента:
 
-1. **Producer**: Генерирует данные заказов и отправляет их в Kafka.
-2. **Consumer**: Читает данные заказов из Kafka и сохраняет их в PostgreSQL.
-3. **Analyzer**: Анализирует данные заказов, хранящиеся в PostgreSQL.
+1. **Producer**: Захватывает кадры с веб-камеры и отправляет их в Kafka.
+2. **Consumer**: Читает кадры из Kafka, обрабатывает их (преобразует в оттенки серого) и сохраняет в PostgreSQL.
+3. **Analyzer**: Анализирует кадры, хранящиеся в PostgreSQL, и может создавать видео из этих кадров.
 
 ## Установка
 
@@ -37,3 +37,4 @@ source myenv/bin/activate && python consumer.py
 ```sh
 source myenv/bin/activate && python analyzer.py
 ```
+

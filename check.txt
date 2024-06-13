@@ -7,6 +7,12 @@ docker-compose up -d
 
 docker exec -it kafka_postgres_learning-postgres-1 psql -U user -d orders_db
 
+docker exec -it kafka_postgres_learning-kafka-1 /bin/bash
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic webcam-frames --from-beginning
+
+
+
 CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
@@ -26,6 +32,9 @@ docker-compose down
 docker-compose ps
 
 DROP TABLE orders;
+DROP TABLE frames;
+TRUNCATE frames;
+
 
 docker images -a -q
 docker images
