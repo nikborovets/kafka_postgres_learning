@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frame Detail</title>
+</head>
+<body>
+    <h1>Frame {{ frame.frame_id }}</h1>
+    <p>Timestamp: {{ frame.get_formatted_timestamp }}</p>
+    <img src="data:image/jpeg;base64,{{ img_base64 }}" alt="Frame Image"/>
+    <a href="{% url 'frame_list' %}">Back to Frame List</a>
+</body>
+</html>

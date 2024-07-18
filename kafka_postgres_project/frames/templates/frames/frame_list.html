@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frame List</title>
+</head>
+<body>
+    <h1>Frame List</h1>
+    <ul>
+        {% for frame in frames %}
+            <li>
+                <a href="{% url 'frame_detail' frame.frame_id %}">Frame {{ frame.frame_id }} at {{ frame.get_formatted_timestamp }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_video' %}">Create Video from Frames</a>
+</body>
+</html>
