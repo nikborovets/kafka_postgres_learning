@@ -45,4 +45,6 @@ for message in consumer:
     timestamp = message.value['timestamp']
     
     save_frame(frame_data, timestamp)
+    # save_frame(frame_str, timestamp)
+    
     print(f"Consumed and saved frame with timestamp: {timestamp}")
