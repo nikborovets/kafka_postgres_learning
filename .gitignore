@@ -5,3 +5,4 @@ processed_frames
 videos
 
 .env
+kafka_postgres_project/videos

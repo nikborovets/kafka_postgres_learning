@@ -1,14 +1,16 @@
 # Kafka-Postgres Learning Project
 
-Этот проект создан для изучения работы с Apache Kafka и PostgreSQL с использованием Python.
+Этот проект создан для изучения работы с Apache Kafka и PostgreSQL с использованием Python  и Django.
 
 ## Описание
 
-Проект включает три основных компонента:
+Проект включает четыре основных компонента:
 
 1. **Producer**: Захватывает кадры с веб-камеры и отправляет их в Kafka.
 2. **Consumer**: Читает кадры из Kafka, обрабатывает их (преобразует в оттенки серого) и сохраняет в PostgreSQL.
 3. **Analyzer**: Анализирует кадры, хранящиеся в PostgreSQL, и может создавать видео из этих кадров.
+4. **Web Interface**: Веб-интерфейс на Django, который повторяет функциональность **Analyzer**. Также в админской панели можно управлять кадрами (удалять, изменять, добавлять).
+
 
 ## Установка
 
@@ -21,6 +23,22 @@
 ```sh
 ./setup.sh
 ```
+
+### Настройка и запуск
+`Django`
+
+```sh
+python -m venv myenv
+source myenv/bin/activate
+pip install -r requirements.txt
+```
+
+```sh
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+```
+
 
 ### Важно!
 
@@ -38,3 +56,7 @@ source myenv/bin/activate && python consumer.py
 source myenv/bin/activate && python analyzer.py
 ```
 
+
+### Использование
+1. `http://127.0.0.1:8000/admin/` - доступ к админке `Django`.
+2. `http://127.0.0.1:8000/frames/` - функционал `analyzer.py`.
